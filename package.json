@@ -1,0 +1,23 @@
+{
+  "name": "chatbot-backend",
+  "version": "1.0.0",
+  "description": "backend services for chatbot app covering questionnaire and user registration services",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "rest",
+    "api"
+  ],
+  "author": "raghavendra",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.10"
+  }
+}

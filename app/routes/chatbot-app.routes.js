@@ -52,10 +52,13 @@ module.exports = app =>  {
 	router.post("/user", userProfile.create);
 	
 	//retrieve all user profiles
-	router.get("/user", userProfile.findAll);
+	router.get("/users", userProfile.findAll);
 	
 	//retrieve single user profile with id
 	router.get("/user/:id", userProfile.findOne);
+	
+	//retrieve user profile with email
+	router.get("/userprofile", userProfile.findByEmail);
 	
 	//update user profile by id
 	router.put("/user/:id", userProfile.update);
@@ -66,4 +69,7 @@ module.exports = app =>  {
 	//delete all user profiles
 	router.delete("/user", userProfile.deleteAll);
 	
+	//------------------------------------------------
+	//register endpoint
+	app.use('/api', router);
 };

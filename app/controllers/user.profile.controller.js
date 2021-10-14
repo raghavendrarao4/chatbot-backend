@@ -9,8 +9,9 @@ const UserProfile = db.userProfile;
 //Create & save a user profile
 exports.create = (req, res) => {
 
+	console.log(req.body);
 	//Validate request
-	if(!req.body.title) {
+	if(!req.body) {
 		res.status(400).send({ message: "Content cannot be empty!" });
 		return;
 	}
@@ -31,7 +32,7 @@ exports.create = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: err.message || "error during save user profile";
+				message: err.message || "error during save user profile"
 			});
 		});
 };
@@ -39,13 +40,15 @@ exports.create = (req, res) => {
 //Retrieve all user profiles from Mongo DB
 exports.findAll = (req, res) => {
 
+	console.log("Inside find all");
+	
 	UserProfile.find()
 		.then(data => {
 			res.send(data);
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: err.message || "error while retrieve all user profiles";
+				message: err.message || "error while retrieve all user profiles"
 			});
 		});
 };
@@ -54,6 +57,8 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
 
 	const userId = req.params.id;
+	console.log("inside findOne: " + userId);
+	
 	UserProfile.findById(userId)
 		.then(data => {
 			if(!data)
@@ -69,14 +74,16 @@ exports.findOne = (req, res) => {
 //Find existing user profile by email
 exports.findByEmail = (req, res) => {
 	
-	const email = req.params.email;
-	UserProfile.find({ email: email})
+	const email = req.query.email;
+	console.log("inside find by email: " + email);
+	
+	UserProfile.find({ email: email })
 		.then(data => {
 			res.send(data);
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: err.message || "Error occurred retrieve user profile by email";
+				message: err.message || "Error occurred retrieve user profile by email"
 			});
 		});
 };
@@ -85,7 +92,7 @@ exports.findByEmail = (req, res) => {
 exports.update = (req, res) => {
 
 	if(!req.body) {
-		return res.status(400).send({ message: "data for update cannot be empty!"; });
+		return res.status(400).send({ message: "data for update cannot be empty!" });
 	}
 	
 	const userId = req.params.id;
@@ -94,7 +101,7 @@ exports.update = (req, res) => {
 		.then(data => {
 			if(!data) {
 				res.status(404).send({
-					message: `Cannot update user profile with id=$userId. Record not found..!!`;
+					message: `Cannot update user profile with id=$userId. Record not found..!!`
 				});
 			} else {
 				res.send({ message: "user profile updated successfully..!!!"});
@@ -102,7 +109,7 @@ exports.update = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: "Error with update user profile with id = " + userId;
+				message: "Error with update user profile with id = " + userId
 			});
 		});
 };
@@ -116,7 +123,7 @@ exports.delete = (req, res) => {
 		.then(data => {
 			if(!data) {
 				res.status(404).send({
-					message: `Cannot delete user profile with id=$userId. Record not found..!!`;
+					message: `Cannot delete user profile with id=$userId. Record not found..!!`
 				});
 			} else {
 				res.send({ message: "User profile deleted successfully...!!!" });
@@ -124,7 +131,7 @@ exports.delete = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: "Error with delete user profile with id = " + userId;
+				message: "Error with delete user profile with id = " + userId
 			});
 		});
 };
@@ -138,7 +145,7 @@ exports.deleteAll = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: err.message || "Error with delete all user profiles";
+				message: err.message || "Error with delete all user profiles"
 			});
 		});
 };

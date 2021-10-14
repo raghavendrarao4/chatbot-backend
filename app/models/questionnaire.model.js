@@ -1,7 +1,7 @@
 //Define Questionnaire model
 module.exports = mongoose => {
 	
-	var QuestionSchema = new Schema({
+	var QuestionSchema = new mongoose.Schema({
 		question: String,
 		answer: String
 	});

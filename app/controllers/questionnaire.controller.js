@@ -9,8 +9,9 @@ const Questionnaire = db.questionnaire;
 //Create & save a questionnaire
 exports.create = (req, res) => {
 	
+	console.log(req.body);
 	//Validate request
-	if(!req.body.title) {
+	if(!req.body) {
 		res.status(400).send({ message: "Content cannot be empty!" });
 		return;
 	}
@@ -30,7 +31,7 @@ exports.create = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: err.message || "error during save questionnaire";
+				message: err.message || "error during save questionnaire"
 			});
 		});
 };
@@ -44,7 +45,7 @@ exports.findAll = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: err.message || "error while retrieve all questionnaire";
+				message: err.message || "error while retrieve all questionnaire"
 			});
 		});
 };
@@ -69,7 +70,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
 	
 	if(!req.body) {
-		return res.status(400).send({ message: "data for update cannot be empty!"; });
+		return res.status(400).send({ message: "data for update cannot be empty!" });
 	}
 	
 	const questionnaireId = req.params.id;
@@ -78,7 +79,7 @@ exports.update = (req, res) => {
 		.then(data => {
 			if(!data) {
 				res.status(404).send({
-					message: `Cannot update questionnaire with id=$questionnaireId. Record not found..!!`;
+					message: `Cannot update questionnaire with id=$questionnaireId. Record not found..!!`
 				});
 			} else {
 				res.send({ message: "Questionnaire updated successfully..!!!"});
@@ -86,7 +87,7 @@ exports.update = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: "Error with update questionnaire with id = " + questionnaireId;
+				message: "Error with update questionnaire with id = " + questionnaireId
 			});
 		});
 };
@@ -100,7 +101,7 @@ exports.delete = (req, res) => {
 		.then(data => {
 			if(!data) {
 				res.status(404).send({
-					message: `Cannot delete questionnaire with id=$questionnaireId. Record not found..!!`;
+					message: `Cannot delete questionnaire with id=$questionnaireId. Record not found..!!`
 				});
 			} else {
 				res.send({ message: "Questionnaire deleted successfully...!!!" });
@@ -108,7 +109,7 @@ exports.delete = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: "Error with delete questionnaire with id = " + questionnaireId;
+				message: "Error with delete questionnaire with id = " + questionnaireId
 			});
 		});
 };
@@ -122,7 +123,7 @@ exports.deleteAll = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: err.message || "Error with delete all questionnaire";
+				message: err.message || "Error with delete all questionnaire"
 			});
 		});
 };

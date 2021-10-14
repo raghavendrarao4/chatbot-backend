@@ -8,8 +8,10 @@ const QuestionnaireTemplate = db.questionnaireTemplate;
 //Create & save a questionnaire template
 exports.create = (req, res) => {
 
+	console.log(req.body);
+	
 	//Validate request
-	if(!req.body.title) {
+	if(!req.body) {
 		res.status(400).send({ message: "Content cannot be empty!" });
 		return;
 	}
@@ -30,7 +32,7 @@ exports.create = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: err.message || "error during save questionnaire template";
+				message: err.message || "error during save questionnaire template"
 			});
 		});
 };
@@ -44,7 +46,7 @@ exports.findAll = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: err.message || "error while retrieve all questionnaire templates";
+				message: err.message || "error while retrieve all questionnaire templates"
 			});
 		});
 };
@@ -69,7 +71,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
 
 	if(!req.body) {
-		return res.status(400).send({ message: "data for update cannot be empty!"; });
+		return res.status(400).send({ message: "data for update cannot be empty!" });
 	}
 	
 	const questionnaireTemplateId = req.params.id;
@@ -78,7 +80,7 @@ exports.update = (req, res) => {
 		.then(data => {
 			if(!data) {
 				res.status(404).send({
-					message: `Cannot update questionnaire template with id=$questionnaireTemplateId. Record not found..!!`;
+					message: `Cannot update questionnaire template with id=$questionnaireTemplateId. Record not found..!!`
 				});
 			} else {
 				res.send({ message: "Questionnaire template updated successfully..!!!"});
@@ -86,7 +88,7 @@ exports.update = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: "Error with update questionnaire template with id = " + questionnaireTemplateId;
+				message: "Error with update questionnaire template with id = " + questionnaireTemplateId
 			});
 		});
 };
@@ -100,7 +102,7 @@ exports.delete = (req, res) => {
 		.then(data => {
 			if(!data) {
 				res.status(404).send({
-					message: `Cannot delete questionnaire template with id=$questionnaireTemplateId. Record not found..!!`;
+					message: `Cannot delete questionnaire template with id=$questionnaireTemplateId. Record not found..!!`
 				});
 			} else {
 				res.send({ message: "Questionnaire template deleted successfully...!!!" });
@@ -108,7 +110,7 @@ exports.delete = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: "Error with delete questionnaire template with id = " + questionnaireTemplateId;
+				message: "Error with delete questionnaire template with id = " + questionnaireTemplateId
 			});
 		});
 };
@@ -122,7 +124,7 @@ exports.deleteAll = (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).send({
-				message: err.message || "Error with delete all questionnaire templates";
+				message: err.message || "Error with delete all questionnaire templates"
 			});
 		});
 };

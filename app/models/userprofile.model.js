@@ -4,6 +4,7 @@ module.exports = mongoose => {
 	var template = mongoose.Schema( {
 			name: String,
 			email: String,
+			password: String,
 			age: {type: Number, min:0, max: 100},
 			gender: {type: String, enum: ['male', 'female']},
 			questionnaireId: String

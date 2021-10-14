@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 	res.json({ message: "Backend services for the chatbot" });
 });
 
-require("./app/routes/questionnaire.routes")(app);
+require("./app/routes/chatbot-app.routes")(app);
 
 //set port, listen for requests
 const PORT = process.env.PORT || 8080;

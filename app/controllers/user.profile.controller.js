@@ -66,6 +66,21 @@ exports.findOne = (req, res) => {
 		});
 };
 
+//Find existing user profile by email
+exports.findByEmail = (req, res) => {
+	
+	const email = req.params.email;
+	UserProfile.find({ email: email})
+		.then(data => {
+			res.send(data);
+		})
+		.catch(err => {
+			res.status(500).send({
+				message: err.message || "Error occurred retrieve user profile by email";
+			});
+		});
+};
+
 //Update user profile by id
 exports.update = (req, res) => {
 
@@ -91,12 +106,6 @@ exports.update = (req, res) => {
 			});
 		});
 };
-
-//Update user profile by questionnaire id
-//exports.update = (req, res) => {
-//	
-//};
-
 
 //Delete user profile by id
 exports.delete = (req, res) => {

@@ -1,0 +1,95 @@
+Questionnaire template
+{
+  "disease": "malaria",
+  "description": "from parasite like mosquitoes",
+  "gender": "male",
+  "questions": [
+    "Do you have fever?",
+    "Do you feel dizzy?",
+    "Vomiting sensation?",
+    "Since how many days did you have fever and vomiting?",
+    "Are you feeling cold or nervous?",
+    "Vomiting sensation?",
+    "Do you have any prescribed medicine you consumed?",
+    "Did you visit any health care centers or doctor before this for this condition?"
+  	]
+}
+{
+    "disease": "sinusitis",
+    "description": "condition with severe headache",
+    "gender": "male",
+    "questions": [
+        "Is your headache severe?",
+        "Since when do you face this problem?",
+        "Does it disturb your job?"
+    ]
+}
+{
+    "disease": "appendicitis",
+    "description": "condition with severe stomach pain",
+    "gender": "male",
+    "questions": [
+        "Is your stomach pain severe?",
+        "Did you have any medications prior?",
+        "Since how long do you have this problem?"
+    ]
+}
+
+Questionnaire
+{
+  "disease": "malaria",
+  "description": "from parasite like mosquitoes",
+  "questions": [
+    { "question": "Do you have fever?", "answer": "yes" },
+    { "question": "Do you feel dizzy?", "answer": "yes" },
+    { "question": "Vomiting sensation?", "answer": "yes" },
+    { "question": "Since how many days did you have fever and vomiting?", "answer": "last 5 days" },
+    { "question": "Are you feeling cold or nervous?", "answer": "yes" },
+     { "question": "Do you have any prescribed medicine you consumed?", "answer": "yes" },
+     { "question": "Did you visit any health care centers or doctor before this for this condition?", "answer": "no" }
+  	]
+}
+{
+    "disease": "sinusitis",
+    "description": "condition with severe headache",
+    "questions": [
+      { "question": "Is your headache severe?", "answer": "yes" },
+      { "question": "Since when do you face this problem?", "answer": "last 2 years" },
+      { "question": "Does it disturb your job?", "answer": "yes" }
+    ]
+}
+{
+    "disease": "appendicitis",
+    "description": "condition with severe stomach pain",
+    "questions": [
+      { "question": "Is your stomach pain severe?", "answer": "yes" },
+      { "question": "Did you have any medications prior?", "answer": "no" },
+      { "question": "Since how long do you have this problem?", "answer": "last couple of months" }
+    ]
+}
+
+User profile
+{
+	"name": "wheat",
+    "email": "wheat@example.com",
+    "password": "xxxxx",
+    "age": 18,
+    "gender": "male",
+    "questionnaireId": "abcd1234"
+}
+{
+	"name": "barley",
+    "email": "barley@example.com",
+    "password": "yyyyyy",
+    "age": 40,
+    "gender": "female",
+    "questionnaireId": "abcd4567"
+}
+{
+	"name": "meat",
+    "email": "meat@example.com",
+    "password": "zzzzzz",
+    "age": 65,
+    "gender": "male",
+    "questionnaireId": "abcd6789"
+}

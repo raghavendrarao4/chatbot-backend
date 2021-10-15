@@ -4,7 +4,7 @@ module.exports = mongoose => {
 	var QuestionSchema = new mongoose.Schema({
 		question: String,
 		answer: String
-	});
+	}, { _id : false });
 	
 	var template = mongoose.Schema( {
 			disease: String,
